@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d521d1f1-c1bd-458b-a329-32dabf700449" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Minesweeper_official.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/minesweeper.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/World.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/LoadData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/ButtonPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/ButtonSmile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/GameFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/GamePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/Label.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/PanelNotification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/PanelPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/title_icon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/LoadData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GameFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,29 +32,34 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2fgbwjcYEF5wuPpI4wrbXaWPPMy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.GameFrame.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.GameFrame.executor": "Run",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\OneDrive\Documents\GitHub\Minesweeper_Official_Java\Minesweeper_official" />
+      <recent name="C:\Users\Admin\OneDrive\Documents\GitHub\Minesweeper_Official_Java\Minesweeper_official\src" />
       <recent name="C:\Users\Admin\IdeaProjects\Minesweeper_official" />
     </key>
   </component>
@@ -96,10 +88,14 @@
       <workItem from="1714344315678" duration="4474000" />
       <workItem from="1714372112666" duration="6444000" />
       <workItem from="1714431895993" duration="218000" />
+      <workItem from="1714432519493" duration="3321000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

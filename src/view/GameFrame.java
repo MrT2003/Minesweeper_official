@@ -12,6 +12,7 @@ public class GameFrame extends JFrame{
         //Add ô chơi vào GameFrame
         add(gamePanel);
         //Add ảnh icon vào
+//        setIconImage(loadData.getTitleIcon().get("title"));
         setIconImage(loadData.getListImage().get("title"));
 
 

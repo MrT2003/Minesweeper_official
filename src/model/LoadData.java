@@ -8,10 +8,13 @@ import java.util.HashMap;
 
 public class LoadData {
     private HashMap<String, BufferedImage> listImage;
+    private HashMap<String, BufferedImage> titleIcon;
     public LoadData() {
         listImage = new HashMap<String, BufferedImage>();
         try {
-            BufferedImage img = ImageIO.read(new File("C:\\Users\\Admin\\IdeaProjects\\Minesweeper_official\\minesweeper.png"));
+//            BufferedImage img_1 = ImageIO.read(new File("C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Minesweeper_Official_Java\\Minesweeper_official\\title_icon.jpg"));
+//            titleIcon.put("title", img_1.getSubimage(0, 0, 710, 444));
+            BufferedImage img = ImageIO.read(new File("C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\Minesweeper_Official_Java\\Minesweeper_official\\minesweeper.png"));
             listImage.put("title", img.getSubimage(0, 84, 114, 25));
             listImage.put("noUse", img.getSubimage(0, 39, 16, 16));
             listImage.put("smile", img.getSubimage(0, 55, 26, 26));
@@ -40,5 +43,12 @@ public class LoadData {
 
     public void setListImage(HashMap<String, BufferedImage> listImage) {
         this.listImage = listImage;
+    }
+
+    public HashMap<String, BufferedImage> getTitleIcon() {
+        return titleIcon;
+    }
+    public void setTitleIcon(HashMap<String, BufferedImage> titleIcon) {
+        this.titleIcon = titleIcon;
     }
 }
