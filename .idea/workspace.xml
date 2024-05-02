@@ -7,6 +7,11 @@
     <list default="true" id="d521d1f1-c1bd-458b-a329-32dabf700449" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/LoadData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ButtonPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ButtonPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PanelPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PanelPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +96,11 @@
       <workItem from="1714447125572" duration="784000" />
       <workItem from="1714447944049" duration="297000" />
       <workItem from="1714448436430" duration="2663000" />
+      <workItem from="1714532409841" duration="509000" />
+      <workItem from="1714532934501" duration="5781000" />
+      <workItem from="1714624207405" duration="130000" />
+      <workItem from="1714636034439" duration="2586000" />
+      <workItem from="1714657020005" duration="54000" />
     </task>
     <servers />
   </component>

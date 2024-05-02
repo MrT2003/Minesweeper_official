@@ -19,7 +19,7 @@ public class LoadData {
             listImage.put("noUse", img.getSubimage(0, 39, 16, 16));
             listImage.put("smile", img.getSubimage(0, 55, 26, 26));
 
-            //Image counting
+            //Image counting red
             listImage.put("0", img.getSubimage(0, 0, 13, 23));
             listImage.put("1", img.getSubimage(13, 0, 13, 23));
             listImage.put("2", img.getSubimage(26, 0, 13, 23));
@@ -30,6 +30,17 @@ public class LoadData {
             listImage.put("7", img.getSubimage(91, 0, 13, 23));
             listImage.put("8", img.getSubimage(104, 0, 13, 23));
             listImage.put("9", img.getSubimage(107, 0, 13, 23));
+
+            //IMmage counting
+            listImage.put("b0", img.getSubimage(0, 23, 16, 16));
+            listImage.put("b1", img.getSubimage(16, 23, 16, 16));
+            listImage.put("b2", img.getSubimage(32, 23, 16, 16));
+            listImage.put("b3", img.getSubimage(48, 23, 16, 16));
+            listImage.put("b4", img.getSubimage(64, 23, 16, 16));
+            listImage.put("b5", img.getSubimage(80, 23, 16, 16));
+            listImage.put("b6", img.getSubimage(96, 23, 16, 16));
+            listImage.put("b7", img.getSubimage(112, 23, 16, 16));
+            listImage.put("b8", img.getSubimage(128, 23, 16, 16));
 
 
         } catch (IOException e) {

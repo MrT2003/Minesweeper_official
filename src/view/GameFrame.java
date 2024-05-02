@@ -28,7 +28,7 @@ public class GameFrame extends JFrame{
     }
 
     public LoadData getLoadData() {
-        return loadData;
+        return  loadData;
     }
     public void setLoadData(LoadData loadData) {
         this.loadData = loadData;

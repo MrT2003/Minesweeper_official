@@ -30,6 +30,16 @@ public class World {
         }
 
     }
+    public boolean open(int i, int j) {
+        int number = arrayBoom[i][j];
+        if(number != -1) {
+            arrayButton[i][j].setNumber(number);
+//            arrayButton[i][j].repaint();
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void showNumber() {
         for(int i = 0; i < arrayBoom.length; i++) {
@@ -53,17 +63,18 @@ public class World {
 
 
     public void createArrayBoom(int boom, int w, int h) {
-        int location_x = random.nextInt(w);
+        int location_x = random.nextInt(w);                /*Random vị trí x, y*/
         int location_y = random.nextInt(h);
 
-        arrayBoom[location_x][location_y] = -1;             /*Size arrayBoom = 1  */
-        int count = 1;
-        while(count != boom) {
-            location_x = random.nextInt(w);
+        arrayBoom[location_x][location_y] = -1;             /*Giá trị tại vị trí arrayBoom = -1  */
+        int count = 0;
+        while(count != boom) {                              /*boom = 10*/
+            location_x = random.nextInt(w);                 /*Random vị trí x, y*/
             location_y = random.nextInt(h);
-            if(arrayBoom[location_x][location_y] != -1) {
+            if(arrayBoom[location_x][location_y] != -1) {   /*Điều chỉnh cho = -1*/
                 arrayBoom[location_x][location_y] = -1;
                 count = 0;
+                //Đếm số -1
                 for(int i = 0; i < arrayBoom.length; i++) {
                     for(int j = 0; j < arrayBoom.length; j++) {
                         if(arrayBoom[i][j] == -1) {
@@ -106,4 +117,6 @@ public class World {
     public void setLbBoom(Label lbBoom) {
         this.lbBoom = lbBoom;
     }
+
+
 }

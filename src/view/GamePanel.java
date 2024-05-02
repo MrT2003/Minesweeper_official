@@ -4,10 +4,11 @@ import controller.World;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel implements MouseListener {
     private World world;
-
     private GameFrame gameFrame;
     private PanelNotification p1;
     private PanelPlayer p2;
@@ -20,7 +21,7 @@ public class GamePanel extends JPanel {
         this.h = h;
         this. world = new World(w, h, boom);
 
-        setLayout(new BorderLayout());
+        setLayout(new BorderLayout(20, 20));
 
         add(p1 = new PanelNotification(this), BorderLayout.NORTH);
 
@@ -58,5 +59,58 @@ public class GamePanel extends JPanel {
 
     public void setGameFrame(GameFrame gameFrame) {
         this.gameFrame = gameFrame;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        ButtonPlayer[][] arrayButton = p2.getArrayButton();
+        for(int i = 0; i < arrayButton.length; i++) {
+            for(int j = 0; j < arrayButton.length; j++) {
+                if(e.getButton() == 1 && e.getSource() == arrayButton[i][j]) {
+//                    System.out.println(i +" , " +j);
+                    if(!world.open(i ,j)) {
+                        int option = JOptionPane.showConfirmDialog(this, "Do You Want To Play Again?", "Notification", JOptionPane.YES_NO_OPTION);
+                        if(option == JOptionPane.YES_NO_OPTION) {
+                            gameFrame.setVisible(false);
+                            new GameFrame();
+                        } else {
+
+                            gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        }
+                    };
+                }
+            }
+        }
+    }
+
+//    public boolean open(int i, int j) {
+//        int number = arrayBoom[i][j];
+//        if(number != -1) {
+//            arrayButton[i][j].setNumber(number);
+////            arrayButton[i][j].repaint();
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }
