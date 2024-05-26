@@ -19,8 +19,9 @@ public class GamePanel extends JPanel implements MouseListener {
         this.gameFrame = gameFrame;
         this.w = w;
         this.h = h;
-        this. world = new World(w, h, boom);
+        this.world = new World(w, h, boom);
 
+        //Set layout cho game screen
         setLayout(new BorderLayout(20, 20));
 
         add(p1 = new PanelNotification(this), BorderLayout.NORTH);
@@ -71,11 +72,11 @@ public class GamePanel extends JPanel implements MouseListener {
         ButtonPlayer[][] arrayButton = p2.getArrayButton();
         for(int i = 0; i < arrayButton.length; i++) {
             for(int j = 0; j < arrayButton.length; j++) {
-                if(e.getButton() == 1 && e.getSource() == arrayButton[i][j]) {
+                if(e.getButton() == 1 && e.getSource() == arrayButton[i][j] && !world.getArrayPutFlag()[i][j]) {
 //                    System.out.println(i +" , " +j);
                     if(!world.open(i ,j)) {
                         if(world.getIsComplete()) {
-                            int option = JOptionPane.showConfirmDialog(this, "You lost, Play again?", "Notification", JOptionPane.YES_NO_OPTION);
+                            int option = JOptionPane.showConfirmDialog(this, "You Lose, Play again?", "Notification", JOptionPane.YES_NO_OPTION);
                             if (option == JOptionPane.YES_NO_OPTION) {
                                 gameFrame.setVisible(false);
                                 new GameFrame();
@@ -83,13 +84,15 @@ public class GamePanel extends JPanel implements MouseListener {
                                 world.fullTrue();
                             }
                         } else if(world.getIsEnd()) {
-                            int option = JOptionPane.showConfirmDialog(this, "You win, Play again?", "Notification", JOptionPane.YES_NO_OPTION);
+                            int option = JOptionPane.showConfirmDialog(this, "You Win, Play again?", "Notification", JOptionPane.YES_NO_OPTION);
                             if (option == JOptionPane.YES_NO_OPTION) {
                                 gameFrame.setVisible(false);
                                 new GameFrame();
                             }
                         }
                     }
+                } else if (e.getButton() == 3 && e.getSource() == arrayButton[i][j]) {
+                    world.putFlag(i, j);
                 }
             }
         }

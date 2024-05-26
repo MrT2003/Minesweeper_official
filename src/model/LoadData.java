@@ -19,6 +19,14 @@ public class LoadData {
             listImage.put("noUse", img.getSubimage(0, 39, 16, 16));
             listImage.put("smile", img.getSubimage(0, 55, 26, 26));
 
+            //Flag
+            listImage.put("flag", img.getSubimage(16, 39, 16, 16));
+
+            //Boom
+            listImage.put("boomRed", img.getSubimage(32, 39, 16, 16));
+            listImage.put("boomX", img.getSubimage(48, 39, 16, 16));
+            listImage.put("boom", img.getSubimage(64, 39, 16, 16));
+
             //Image counting red
             listImage.put("0", img.getSubimage(0, 0, 13, 23));
             listImage.put("1", img.getSubimage(13, 0, 13, 23));

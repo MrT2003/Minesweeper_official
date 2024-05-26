@@ -12,19 +12,15 @@ public class GameFrame extends JFrame{
         //Add ô chơi vào GameFrame
         add(gamePanel);
         //Add ảnh icon vào
-//        setIconImage(loadData.getTitleIcon().get("title"));
+        //setIconImage(loadData.getTitleIcon().get("title"));
         setIconImage(loadData.getListImage().get("title"));
 
-
+        //Set Frame
         pack();
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new GameFrame();
     }
 
     public LoadData getLoadData() {

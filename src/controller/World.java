@@ -12,6 +12,15 @@ public class World {
     private int[][] arrayBoom;      /*create array boom*/
     private boolean[][] arrayBoolean;
 
+    public boolean[][] getArrayPutFlag() {
+        return arrayPutFlag;
+    }
+
+    public void setArrayPutFlag(boolean[][] arrayPutFlag) {
+        this.arrayPutFlag = arrayPutFlag;
+    }
+
+    private boolean[][] arrayPutFlag;
     private boolean isComplete;
     private boolean isEnd;
     private ButtonSmile btSmile;
@@ -24,38 +33,43 @@ public class World {
         arrayButton = new ButtonPlayer[w][h];
         arrayBoom = new int[w][h];
         arrayBoolean = new boolean[w][h];
+        arrayPutFlag = new boolean[w][h];
 
         random = new Random();
 
-        createArrayBoom(boom, w, h);
-        showNumber();
+        //Start here
+        createArrayBoom(boom, w, h);  /*Choose location that have -1*/
+        showNumber();   /*Hiện 0 và -1 */
         System.out.println(boom);
-        for(int i = 0; i < arrayBoom.length; i++) {
-            for(int j = 0; j < arrayBoom.length; j++)  {
-                System.out.print(arrayBoom[i][j] + " ");
+    }
+    public void putFlag(int i, int j) {
+        if(!arrayBoolean[i][j]) {
+            if(arrayPutFlag[i][j]) {
+                arrayPutFlag[j][j] = false;
+                arrayButton[i][j].setNumber(-1);
+                arrayButton[i][j].repaint();
+            } else {
+                arrayPutFlag[i][j] = true;
+                arrayButton[i][j].setNumber(9);
+                arrayButton[i][j].repaint();
             }
-            System.out.println();
         }
-
     }
     public boolean open(int i, int j) {
-        if(checkWin()) {
-            isEnd = true;
-            for(int j2 = 0; j2 < arrayBoolean.length; j2++) {
-                for(int k = 0; k < arrayBoolean.length; k++) {
-                    if(!arrayBoolean[j2][k]) {
-                        arrayBoolean[j2][k] = true;
-                    }
-                }
-            }
-            return false;
-        }
         if (!isComplete && !isEnd) {
             if (!arrayBoolean[i][j]) {
+                //Mở lân cận
                 if (arrayBoom[i][j] == 0) {
                     arrayBoolean[i][j] = true;
                     arrayButton[i][j].setNumber(0);
                     arrayButton[i][j].repaint();
+
+                    if(checkWin()) {
+                        isEnd = true;
+                        fullTrue();
+                        return false;
+                    }
+
                     for (int l = i - 1; l <= i + 1; l++) {
                         for (int k = j - 1; k <= j + 1; k++) {
                             if (l >= 0 && l <= arrayBoom.length - 1 && k >= 0 && k <= arrayBoom.length - 1) {
@@ -70,13 +84,29 @@ public class World {
                     int number = arrayBoom[i][j];
                     if (number != -1) {
                         arrayButton[i][j].setNumber(number);
-            arrayButton[i][j].repaint();
+                        arrayButton[i][j].repaint();
+                        if(checkWin()) {
+                            isEnd = true;
+                            fullTrue();
+                            return false;
+                        }
                         return true;
                     }
                 }
             }
             if (arrayBoom[i][j] == -1) {
+                arrayButton[i][j].setNumber(11);
+                arrayButton[i][j].repaint();
                 isComplete = true;
+
+                for(int j2 = 0; j2 < arrayBoolean.length; j2++) {
+                    for (int k = 0; k < arrayBoolean.length;k++) {
+                        if(arrayBoom[j2][k] == -1 && !arrayBoolean[j2][k]) {
+                            arrayButton[j2][k].setNumber(10);
+                            arrayButton[j2][k].repaint();
+                        }
+                    }
+                }
                 return false;
             } else {
                 return true;
@@ -89,6 +119,7 @@ public class World {
     public void showNumber() {
         for(int i = 0; i < arrayBoom.length; i++) {
             for(int j = 0; j < arrayBoom.length; j++) {
+                //Check if location not have boom == 0
                 if(arrayBoom[i][j] == 0) {
                     int count = 0;
                     for(int l = i - 1; l <= i + 1; l++) {
@@ -116,6 +147,7 @@ public class World {
         while(count != boom) {                              /*boom = 10*/
             location_x = random.nextInt(w);                 /*Random vị trí x, y*/
             location_y = random.nextInt(h);
+            //check whether location have boom or not
             if(arrayBoom[location_x][location_y] != -1) {   /*Điều chỉnh cho = -1*/
                 arrayBoom[location_x][location_y] = -1;
                 count = 0;
@@ -146,11 +178,13 @@ public class World {
         int count = 0;
         for(int i = 0; i < arrayBoolean.length; i++) {
             for(int j = 0; j < arrayBoolean.length; j++) {
+                //Count box not open
                 if(!arrayBoolean[i][j]) {
                     count++;
                 }
             }
         }
+        //if enough => win
         if(count == boom) {
             return true;
         } else {
