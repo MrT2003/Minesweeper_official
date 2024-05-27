@@ -6,8 +6,10 @@ import view.Label;
 
 import javax.swing.*;
 import java.util.Random;
+import java.util.Stack;
 
 public class World {
+    private Stack<Move> moveStack;
     private ButtonPlayer[][] arrayButton;
     private int[][] arrayBoom;      /*create array boom*/
     private boolean[][] arrayBoolean;
@@ -34,6 +36,7 @@ public class World {
         arrayBoom = new int[w][h];
         arrayBoolean = new boolean[w][h];
         arrayPutFlag = new boolean[w][h];
+        moveStack = new Stack<>();
 
         random = new Random();
 
@@ -45,10 +48,12 @@ public class World {
     public void putFlag(int i, int j) {
         if(!arrayBoolean[i][j]) {
             if(arrayPutFlag[i][j]) {
+                moveStack.push(new Move(i, j, true, false, -1));
                 arrayPutFlag[j][j] = false;
                 arrayButton[i][j].setNumber(-1);
                 arrayButton[i][j].repaint();
             } else {
+                moveStack.push(new Move(i, j, false, false, 9));
                 arrayPutFlag[i][j] = true;
                 arrayButton[i][j].setNumber(9);
                 arrayButton[i][j].repaint();
@@ -58,13 +63,15 @@ public class World {
     public boolean open(int i, int j) {
         if (!isComplete && !isEnd) {
             if (!arrayBoolean[i][j]) {
-                //Mở lân cận
+                int previousNumber = arrayBoom[i][j];
+                moveStack.push(new Move(i, j, false, true, previousNumber));
+                // Open adjacent cells if the current cell is 0
                 if (arrayBoom[i][j] == 0) {
                     arrayBoolean[i][j] = true;
                     arrayButton[i][j].setNumber(0);
                     arrayButton[i][j].repaint();
 
-                    if(checkWin()) {
+                    if (checkWin()) {
                         isEnd = true;
                         fullTrue();
                         return false;
@@ -72,7 +79,7 @@ public class World {
 
                     for (int l = i - 1; l <= i + 1; l++) {
                         for (int k = j - 1; k <= j + 1; k++) {
-                            if (l >= 0 && l <= arrayBoom.length - 1 && k >= 0 && k <= arrayBoom.length - 1) {
+                            if (l >= 0 && l < arrayBoom.length && k >= 0 && k < arrayBoom[0].length) {
                                 if (!arrayBoolean[l][k]) {
                                     open(l, k);
                                 }
@@ -85,7 +92,7 @@ public class World {
                     if (number != -1) {
                         arrayButton[i][j].setNumber(number);
                         arrayButton[i][j].repaint();
-                        if(checkWin()) {
+                        if (checkWin()) {
                             isEnd = true;
                             fullTrue();
                             return false;
@@ -99,9 +106,9 @@ public class World {
                 arrayButton[i][j].repaint();
                 isComplete = true;
 
-                for(int j2 = 0; j2 < arrayBoolean.length; j2++) {
-                    for (int k = 0; k < arrayBoolean.length;k++) {
-                        if(arrayBoom[j2][k] == -1 && !arrayBoolean[j2][k]) {
+                for (int j2 = 0; j2 < arrayBoolean.length; j2++) {
+                    for (int k = 0; k < arrayBoolean[0].length; k++) {
+                        if (arrayBoom[j2][k] == -1 && !arrayBoolean[j2][k]) {
                             arrayButton[j2][k].setNumber(10);
                             arrayButton[j2][k].repaint();
                         }
@@ -113,6 +120,31 @@ public class World {
             }
         } else {
             return false;
+        }
+    }
+
+    public void undo() {
+        if (!moveStack.isEmpty()) {
+            Move lastMove = moveStack.pop();
+            int x = lastMove.getX();
+            int y = lastMove.getY();
+            boolean wasFlag = lastMove.wasFlag();
+            boolean wasOpened = lastMove.wasOpened();
+            int previousNumber = lastMove.getPreviousNumber();
+
+            if (wasFlag) {
+                arrayPutFlag[x][y] = !arrayPutFlag[x][y];
+                arrayButton[x][y].setNumber(arrayPutFlag[x][y] ? 9 : -1);
+            } else if (wasOpened) {
+                arrayBoolean[x][y] = false;
+                arrayButton[x][y].setNumber(previousNumber);
+            }
+
+            // Reset game state flags if they were set due to the last move
+            setComplete(false);
+            setEnd(false);
+
+            arrayButton[x][y].repaint();
         }
     }
 
@@ -240,5 +272,12 @@ public class World {
         return isEnd;
     }
 
+    public void setComplete(boolean isComplete) {
+        this.isComplete = isComplete;
+    }
+
+    public void setEnd(boolean isEnd) {
+        this.isEnd = isEnd;
+    }
 
 }

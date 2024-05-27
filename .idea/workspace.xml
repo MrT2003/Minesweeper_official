@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d521d1f1-c1bd-458b-a329-32dabf700449" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/controller/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/LoadData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ButtonPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ButtonPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GamePanel.java" afterDir="false" />
     </list>
@@ -108,6 +106,10 @@
       <workItem from="1716622071176" duration="4121000" />
       <workItem from="1716647629618" duration="28000" />
       <workItem from="1716708083183" duration="3899000" />
+      <workItem from="1716737732806" duration="1490000" />
+      <workItem from="1716765108881" duration="2936000" />
+      <workItem from="1716778759970" duration="14000" />
+      <workItem from="1716822530890" duration="3333000" />
     </task>
     <servers />
   </component>

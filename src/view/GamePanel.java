@@ -98,17 +98,6 @@ public class GamePanel extends JPanel implements MouseListener {
         }
     }
 
-//    public boolean open(int i, int j) {
-//        int number = arrayBoom[i][j];
-//        if(number != -1) {
-//            arrayButton[i][j].setNumber(number);
-////            arrayButton[i][j].repaint();
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-
     @Override
     public void mouseReleased(MouseEvent e) {
 
@@ -122,5 +111,8 @@ public class GamePanel extends JPanel implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+    public void undoLastMove() {
+        world.undo();
     }
 }
