@@ -1,3 +1,8 @@
+/*
+Name: Bùi Văn Minh Triều
+Purpose: handle the mouse operations
+*/
+
 package view;
 
 import controller.World;

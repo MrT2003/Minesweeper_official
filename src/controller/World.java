@@ -1,3 +1,8 @@
+/*
+Name: Bùi Văn Minh Triều
+Purpose: Manage State (Undo feature, check is the game win or lose)
+*/
+
 package controller;
 
 import view.ButtonPlayer;
@@ -10,6 +15,7 @@ import java.util.Stack;
 
 public class World {
     private Stack<Move> moveStack;
+    private Stack<boolean[][]> undoStack;
     private ButtonPlayer[][] arrayButton;
     private int[][] arrayBoom;      /*create array boom*/
     private boolean[][] arrayBoolean;
@@ -29,7 +35,7 @@ public class World {
     private Label lbBoom, lbTime;
     private Random random;
     private int boom;
-    private Stack<boolean[][]> undoStack;
+
 
     public World(int w, int h, int boom) {
         this.boom = boom;
@@ -67,7 +73,7 @@ public class World {
             if (!arrayBoolean[i][j]) {
                 int previousNumber = arrayBoom[i][j];
                 moveStack.push(new Move(i, j, false, true, previousNumber));
-                // Lưu trạng thái của toàn bộ bảng trước khi dính boom
+                // Save the states of all cell before get boom
                 boolean[][] currentState = new boolean[arrayBoolean.length][arrayBoolean[0].length];
                 for (int a = 0; a < arrayBoolean.length; a++) {
                     System.arraycopy(arrayBoolean[a], 0, currentState[a], 0, arrayBoolean[a].length);
@@ -156,14 +162,14 @@ public class World {
 
             arrayButton[x][y].repaint();
 
-            // Kiểm tra xem có trạng thái nào cần khôi phục không
+            // Check is there any states need to pop
             if (!undoStack.isEmpty()) {
                 boolean[][] previousState = undoStack.pop();
                 for (int i = 0; i < arrayBoolean.length; i++) {
                     System.arraycopy(previousState[i], 0, arrayBoolean[i], 0, previousState[i].length);
                 }
 
-                // Cập nhật lại giao diện người dùng
+                // Repaint the interface
                 for (int i = 0; i < arrayButton.length; i++) {
                     for (int j = 0; j < arrayButton[i].length; j++) {
                         if (arrayBoolean[i][j]) {
@@ -179,6 +185,7 @@ public class World {
     }
 
 
+    //Show the number after open the cell
     public void showNumber() {
         for(int i = 0; i < arrayBoom.length; i++) {
             for(int j = 0; j < arrayBoom.length; j++) {
@@ -202,19 +209,18 @@ public class World {
 
 
     public void createArrayBoom(int boom, int w, int h) {
-        int location_x = random.nextInt(w);                /*Random vị trí x, y*/
+        int location_x = random.nextInt(w);                /*Random x, y location*/
         int location_y = random.nextInt(h);
 
-        arrayBoom[location_x][location_y] = -1;             /*Giá trị tại vị trí arrayBoom = -1  */
+        arrayBoom[location_x][location_y] = -1;             /*value in arrayBoom = -1  */
         int count = 0;
         while(count != boom) {                              /*boom = 10*/
-            location_x = random.nextInt(w);                 /*Random vị trí x, y*/
+            location_x = random.nextInt(w);                 /*Random x, y location*/
             location_y = random.nextInt(h);
             //check whether location have boom or not
-            if(arrayBoom[location_x][location_y] != -1) {   /*Điều chỉnh cho = -1*/
+            if(arrayBoom[location_x][location_y] != -1) {
                 arrayBoom[location_x][location_y] = -1;
                 count = 0;
-                //Đếm số -1
                 for(int i = 0; i < arrayBoom.length; i++) {
                     for(int j = 0; j < arrayBoom.length; j++) {
                         if(arrayBoom[i][j] == -1) {

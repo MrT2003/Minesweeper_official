@@ -1,3 +1,8 @@
+/*
+Name: Bùi Văn Minh Triều
+Purpose: Taking
+*/
+
 package view;
 
 import javax.swing.*;

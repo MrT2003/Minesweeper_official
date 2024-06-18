@@ -1,3 +1,8 @@
+/*
+Name: Bùi Văn Minh Triều
+Purpose: Paint the Smile icon
+*/
+
 package view;
 
 import javax.swing.*;

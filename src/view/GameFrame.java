@@ -1,8 +1,15 @@
-package view;
-import model.LoadData;
+/*
+Name: Bùi Văn Minh Triều
+Purpose:
+*/
 
+package view;
+
+import model.LoadData;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
 
 public class GameFrame extends JFrame{
     private LoadData loadData;
@@ -15,8 +22,9 @@ public class GameFrame extends JFrame{
         //Add ô chơi vào GameFrame
         add(gamePanel);
         //Add ảnh icon vào
-        //setIconImage(loadData.getTitleIcon().get("title"));
-        setIconImage(loadData.getListImage().get("title"));
+        BufferedImage originalIcon = loadData.getTitleIcon().get("title");
+        BufferedImage resizedIcon = resizeImage(originalIcon, 200, 200);
+        setIconImage(resizedIcon);
 
         //Set Frame
         pack();
@@ -52,6 +60,15 @@ public class GameFrame extends JFrame{
         });
 
         setJMenuBar(menuBar);
+    }
+
+    // Method to resize BufferedImage
+    private BufferedImage resizeImage(BufferedImage originalImage, int width, int height) {
+        BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = resizedImage.createGraphics();
+        g.drawImage(originalImage, 0, 0, width, height, null);
+        g.dispose();
+        return resizedImage;
     }
 
     public LoadData getLoadData() {

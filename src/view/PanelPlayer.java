@@ -1,3 +1,8 @@
+/*
+Name: Bùi Văn Minh Triều
+Purpose: set Layout and draw grid for cell
+*/
+
 package view;
 
 import controller.World;

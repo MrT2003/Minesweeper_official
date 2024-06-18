@@ -1,3 +1,7 @@
+/*
+Name: Bùi Văn Minh Triều
+Purpose: Recording the steps have moved, put Flags and is it the cells opened?
+*/
 package controller;
 
 public class Move {
