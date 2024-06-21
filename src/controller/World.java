@@ -19,15 +19,6 @@ public class World {
     private ButtonPlayer[][] arrayButton;
     private int[][] arrayBoom;      /*create array boom*/
     private boolean[][] arrayBoolean;
-
-    public boolean[][] getArrayPutFlag() {
-        return arrayPutFlag;
-    }
-
-    public void setArrayPutFlag(boolean[][] arrayPutFlag) {
-        this.arrayPutFlag = arrayPutFlag;
-    }
-
     private boolean[][] arrayPutFlag;
     private boolean isComplete;
     private boolean isEnd;
@@ -35,6 +26,7 @@ public class World {
     private Label lbBoom, lbTime;
     private Random random;
     private int boom;
+
 
 
     public World(int w, int h, int boom) {
@@ -53,6 +45,15 @@ public class World {
         showNumber();   /*Hiện 0 và -1 */
         System.out.println(boom);
     }
+
+    public boolean[][] getArrayPutFlag() {
+        return arrayPutFlag;
+    }
+
+    public void setArrayPutFlag(boolean[][] arrayPutFlag) {
+        this.arrayPutFlag = arrayPutFlag;
+    }
+
     public void putFlag(int i, int j) {
         if(!arrayBoolean[i][j]) {
             if(arrayPutFlag[i][j]) {

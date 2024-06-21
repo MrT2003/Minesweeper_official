@@ -1,6 +1,6 @@
 /*
 Name: Bùi Văn Minh Triều
-Purpose: Paint the Smile icon
+Purpose: Paint the Smile icon and Restart game (Future feature)
 */
 
 package view;

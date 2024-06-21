@@ -1,6 +1,6 @@
 /*
 Name: Bùi Văn Minh Triều
-Purpose:
+Purpose: Create a window (adjusting size) and interface 
 */
 
 package view;

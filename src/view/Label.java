@@ -1,6 +1,6 @@
 /*
 Name: Bùi Văn Minh Triều
-Purpose: Taking
+Purpose: g
 */
 
 package view;

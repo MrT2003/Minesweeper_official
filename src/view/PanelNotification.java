@@ -1,6 +1,6 @@
 /*
 Name: Bùi Văn Minh Triều
-Purpose:
+Purpose: Arrange location for each widget
 */
 
 package view;

@@ -1,6 +1,6 @@
 /*
 Name: Bùi Văn Minh Triều
-Purpose:
+Purpose: Get the image from getListImage when click to corresponding cell
 */
 
 package view;
